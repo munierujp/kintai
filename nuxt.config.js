@@ -1,5 +1,6 @@
 import i18nConfig from './nuxt-i18n.config'
 import vuetifyConfig from './vuetify.config'
+import { APP_NAME, APP_DESCRIPTION } from './lang/ja'
 
 export default {
   mode: 'spa',
@@ -7,11 +8,11 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: APP_NAME,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: APP_DESCRIPTION }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
