@@ -1,3 +1,4 @@
+import i18nConfig from './nuxt-i18n.config'
 import vuetifyConfig from './vuetify.config'
 
 export default {
@@ -44,6 +45,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    ['nuxt-i18n', i18nConfig]
   ],
   /*
   ** Build configuration
