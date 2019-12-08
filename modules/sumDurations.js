@@ -1,6 +1,6 @@
-import { Duration } from 'luxon'
+import newZeroDuration from './newZeroDuration'
 
 function sumDurations (...durations) {
-  return durations.reduce((a, b) => a.plus(b), Duration.fromMillis(0))
+  return durations.reduce((a, b) => a.plus(b), newZeroDuration())
 }
 export default sumDurations
