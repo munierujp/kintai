@@ -1,13 +1,13 @@
 import floorDuration from './floorDuration'
 import formatDuration from './formatDuration'
-import newDurationFromHTMLTime from './newDurationFromHTMLTime'
+import parseDuration from './parseDuration'
 
 function calcTimes ({ stayingTime, breakTime, standardWorkingTime, workingTimeUnits }) {
-  const stayingTimeDuration = newDurationFromHTMLTime(stayingTime)
-  const breakTimeDuration = newDurationFromHTMLTime(breakTime)
+  const stayingTimeDuration = parseDuration(stayingTime)
+  const breakTimeDuration = parseDuration(breakTime)
   const actualWorkingTimeDuration = stayingTimeDuration.minus(breakTimeDuration)
   const workingTimeDuration = floorDuration(actualWorkingTimeDuration, workingTimeUnits)
-  const standardWorkingTimeDuration = newDurationFromHTMLTime(standardWorkingTime)
+  const standardWorkingTimeDuration = parseDuration(standardWorkingTime)
   const overtimeDuration = workingTimeDuration.minus(standardWorkingTimeDuration)
   return {
     stayingTime,

@@ -51,7 +51,7 @@
 
 <script>
 import formatDuration from '~/modules/formatDuration'
-import newDurationFromHTMLTime from '~/modules/newDurationFromHTMLTime'
+import parseDuration from '~/modules/parseDuration'
 import sumDurations from '~/modules/sumDurations'
 import AppTableRow from '~/components/AppTableRow'
 
@@ -126,7 +126,7 @@ export default {
     sumDurations (key) {
       const durations = this.records
         .map(record => record[key])
-        .map(newDurationFromHTMLTime)
+        .map(parseDuration)
         .filter(duration => duration.isValid)
       return sumDurations(...durations)
     }
