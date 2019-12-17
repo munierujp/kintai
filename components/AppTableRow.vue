@@ -36,7 +36,7 @@ export default {
   },
   filters: {
     formatDate (date) {
-      return formatDate(date, 'yyyy/M/d(EEEEE)')
+      return formatDate(date, 'M/d(EEEEE)')
     }
   },
   props: {
