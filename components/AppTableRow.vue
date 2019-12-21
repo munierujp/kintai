@@ -48,23 +48,26 @@ export default {
       type: String,
       required: true,
       validator: value => value === '' || isHTMLTime(value)
-    },
-    breakTime: {
-      type: String,
-      required: true,
-      validator: value => value === '' || isHTMLTime(value)
-    },
-    standardWorkingTime: {
-      type: String,
-      required: true,
-      validator: value => value === '' || isHTMLTime(value)
-    },
-    workingTimeUnits: {
-      type: Object,
-      required: true
     }
   },
   computed: {
+    config () {
+      return this.$store.state.config
+    },
+    breakTime () {
+      return this.config.breakTime
+    },
+    standardWorkingTime () {
+      return this.config.standardWorkingTime
+    },
+    workingTimeUnit () {
+      return this.config.workingTimeUnit
+    },
+    workingTimeUnits () {
+      return {
+        minutes: this.workingTimeUnit
+      }
+    },
     _stayingTime: {
       get () {
         return this.stayingTime
