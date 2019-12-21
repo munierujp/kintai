@@ -1,6 +1,7 @@
 {
   "APP_DESCRIPTION": "勤怠管理システム",
   "APP_NAME": "kintai",
+  "ERROR_MESSAGE_NOT_NUMBER": "数字を入力してください。",
   "ERROR_MESSAGE_NOT_TIME": "時間を入力してください。",
   "FOOTER_CREATOR_LABEL": "@munieru_jp",
   "FOOTER_CREATOR_URL": "https://twitter.com/munieru_jp",
