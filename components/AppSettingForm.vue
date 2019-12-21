@@ -1,31 +1,33 @@
 <template>
-  <v-container class="app-setting-form">
-    <v-row>
-      <v-col>
-        <app-input-time
-          v-model="_breakTime"
-          :label="$t('BREAK_TIME')"
-        />
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <app-input-time
-          v-model="_standardWorkingTime"
-          :label="$t('STANDARD_WORKING_TIME')"
-        />
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <app-input-number
-          v-model="_workingTimeUnit"
-          :label="$t('WORKING_TIME_UNIT')"
-          :suffix="$t('WORKING_TIME_UNIT_SUFFIX')"
-        />
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-form v-model="_valid">
+    <v-container class="app-setting-form">
+      <v-row>
+        <v-col>
+          <app-input-time
+            v-model="_breakTime"
+            :label="$t('BREAK_TIME')"
+          />
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <app-input-time
+            v-model="_standardWorkingTime"
+            :label="$t('STANDARD_WORKING_TIME')"
+          />
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col>
+          <app-input-number
+            v-model="_workingTimeUnit"
+            :label="$t('WORKING_TIME_UNIT')"
+            :suffix="$t('WORKING_TIME_UNIT_SUFFIX')"
+          />
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-form>
 </template>
 
 <script>
@@ -38,6 +40,10 @@ export default {
     AppInputTime
   },
   props: {
+    valid: {
+      type: Boolean,
+      default: false
+    },
     breakTime: {
       type: String,
       required: true
@@ -52,6 +58,14 @@ export default {
     }
   },
   computed: {
+    _valid: {
+      get () {
+        return this.valid
+      },
+      set (valid) {
+        this.$emit('update:valid', valid)
+      }
+    },
     _breakTime: {
       get () {
         return this.breakTime
