@@ -94,14 +94,14 @@ export default {
     overtime () {
       return this.time.overtime
     },
-    isHoliday () {
-      return isHoliday(this.date)
-    },
     isSunday () {
       return isSunday(this.date)
     },
     isSaturday () {
       return isSaturday(this.date)
+    },
+    isHoliday () {
+      return isHoliday(this.date)
     },
     dateClass () {
       return {
