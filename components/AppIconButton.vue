@@ -1,5 +1,6 @@
 <template>
   <v-btn
+    :disabled="disabled"
     @click="click"
     icon
   >
@@ -13,6 +14,10 @@ export default {
     icon: {
       type: String,
       required: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
