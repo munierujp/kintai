@@ -14,10 +14,12 @@
         <app-icon-button
           @click="onClickSaveIcon"
           :icon="icons.save"
+          :disabled="!valid"
         />
       </v-toolbar>
       <v-card-text>
         <app-setting-form
+          :valid.sync="valid"
           :breakTime.sync="config.breakTime"
           :standardWorkingTime.sync="config.standardWorkingTime"
           :workingTimeUnit.sync="config.workingTimeUnit"
@@ -49,6 +51,7 @@ export default {
     const { breakTime, standardWorkingTime, workingTimeUnit } = this.$store.state.config
     return {
       icons,
+      valid: false,
       initialConfig: {
         breakTime,
         standardWorkingTime,
