@@ -10,7 +10,10 @@
       >
     </td>
     <td>
-      {{ breakTime }}
+      <input
+        v-model="_breakTime"
+        type="time"
+      >
     </td>
     <td>
       {{ actualWorkingTime }}
@@ -19,7 +22,10 @@
       {{ workingTime }}
     </td>
     <td>
-      {{ standardWorkingTime }}
+      <input
+        v-model="_standardWorkingTime"
+        type="time"
+      >
     </td>
     <td>
       {{ overtime }}
@@ -49,12 +55,19 @@ export default {
       type: String,
       required: true,
       validator: value => value === '' || isHTMLTime(value)
+    },
+    breakTime: {
+      type: String,
+      required: true,
+      validator: value => value === '' || isHTMLTime(value)
+    },
+    standardWorkingTime: {
+      type: String,
+      required: true,
+      validator: value => value === '' || isHTMLTime(value)
     }
   },
   computed: {
-    config () {
-      return this.$store.state.config
-    },
     _stayingTime: {
       get () {
         return this.stayingTime
@@ -62,6 +75,25 @@ export default {
       set (stayingTime) {
         this.$emit('update:staying-time', stayingTime)
       }
+    },
+    _breakTime: {
+      get () {
+        return this.breakTime
+      },
+      set (breakTime) {
+        this.$emit('update:break-time', breakTime)
+      }
+    },
+    _standardWorkingTime: {
+      get () {
+        return this.standardWorkingTime
+      },
+      set (standardWorkingTime) {
+        this.$emit('update:standard-working-time', standardWorkingTime)
+      }
+    },
+    config () {
+      return this.$store.state.config
     },
     isWorkDay () {
       return this._stayingTime !== ''
@@ -82,12 +114,6 @@ export default {
         holiday: this.isHoliday
       }
     },
-    breakTime () {
-      return this.isWorkDay ? this.config.breakTime : ''
-    },
-    standardWorkingTime () {
-      return this.isWorkDay ? this.config.standardWorkingTime : ''
-    },
     workingTimeUnit () {
       return this.config.workingTimeUnit
     },
@@ -99,8 +125,8 @@ export default {
     time () {
       return calcTimes({
         stayingTime: this._stayingTime,
-        breakTime: this.breakTime,
-        standardWorkingTime: this.standardWorkingTime,
+        breakTime: this._breakTime,
+        standardWorkingTime: this._standardWorkingTime,
         workingTimeUnits: this.workingTimeUnits
       })
     },

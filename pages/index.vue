@@ -26,6 +26,9 @@ export default {
   computed: {
     db () {
       return this.$store.state.db
+    },
+    config () {
+      return this.$store.state.config
     }
   },
   watch: {
@@ -50,7 +53,23 @@ export default {
         lower: startOfMonth(now),
         upper: endOfMonth(now)
       })
-      return records.length ? records : createDefaultRecords()
+      return records.length ? records : this.createDefaultRecords()
+    },
+    createDefaultRecords () {
+      const { breakTime, standardWorkingTime } = this.config
+      const dates = getDatesOfCurrentMonth()
+      return dates
+        .map((date) => {
+          return {
+            date,
+            stayingTime: '',
+            breakTime,
+            actualWorkingTime: '',
+            workingTime: '',
+            standardWorkingTime,
+            overtime: ''
+          }
+        })
     },
     async saveRecords (records) {
       for (const record of records) {
@@ -58,19 +77,5 @@ export default {
       }
     }
   }
-}
-
-function createDefaultRecords () {
-  const dates = getDatesOfCurrentMonth()
-  return dates
-    .map((date) => {
-      return {
-        date,
-        stayingTime: '',
-        actualWorkingTime: '',
-        workingTime: '',
-        overtime: ''
-      }
-    })
 }
 </script>

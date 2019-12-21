@@ -15,8 +15,10 @@
           <app-table-row
             :date="record.date"
             :staying-time.sync="record.stayingTime"
+            :break-time.sync="record.breakTime"
             :actual-working-time.sync="record.actualWorkingTime"
             :working-time.sync="record.workingTime"
+            :standard-working-time.sync="record.standardWorkingTime"
             :overtime.sync="record.overtime"
           />
         </template>
