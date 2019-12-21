@@ -29,9 +29,9 @@
 
 <script>
 import { isSunday, isSaturday } from 'date-fns'
+import { isHoliday } from '@holiday-jp/holiday_jp'
 import calcTimes from '~/modules/calcTimes'
 import formatDate from '~/modules/formatDate'
-import isHoliday from '~/modules/isHoliday'
 import isHTMLTime from '~/modules/isHTMLTime'
 
 export default {
