@@ -31,6 +31,7 @@
 import { isSunday, isSaturday } from 'date-fns'
 import calcTimes from '~/modules/calcTimes'
 import formatDate from '~/modules/formatDate'
+import isHoliday from '~/modules/isHoliday'
 import isHTMLTime from '~/modules/isHTMLTime'
 
 export default {
@@ -93,6 +94,9 @@ export default {
     overtime () {
       return this.time.overtime
     },
+    isHoliday () {
+      return isHoliday(this.date)
+    },
     isSunday () {
       return isSunday(this.date)
     },
@@ -102,7 +106,8 @@ export default {
     dateClass () {
       return {
         sunday: this.isSunday,
-        saturday: this.isSaturday
+        saturday: this.isSaturday,
+        holiday: this.isHoliday
       }
     }
   },
@@ -128,4 +133,9 @@ export default {
 .saturday {
   color: #2196f3;
 }
+
+.holiday {
+  color: #f44336;
+}
+
 </style>
