@@ -22,5 +22,6 @@
   "HEADER_WORKING_TIME": "労働時間",
   "HEADER_WORKING_TIME_UNIT": "労働時間の単位",
   "SETTING": "設定",
-  "TOTAL": "合計"
+  "TOTAL": "合計",
+  "WORKING_TIME_UNIT_SUFFIX": "分"
 }
