@@ -19,6 +19,15 @@
       {{ actualWorkingTime }}
     </td>
     <td>
+      <input
+        v-model.number="_workingTimeUnit"
+        type="number"
+        min="0"
+        class="working-time-unit"
+      >
+      {{ $t('WORKING_TIME_UNIT_SUFFIX') }}
+    </td>
+    <td>
       {{ workingTime }}
     </td>
     <td>
@@ -39,6 +48,7 @@ import { isHoliday } from '@holiday-jp/holiday_jp'
 import calcTimes from '~/modules/calcTimes'
 import formatDate from '~/modules/formatDate'
 import isHTMLTime from '~/modules/isHTMLTime'
+import isNumber from '~/modules/isNumber'
 
 export default {
   filters: {
@@ -61,6 +71,10 @@ export default {
       required: true,
       validator: value => value === '' || isHTMLTime(value)
     },
+    workingTimeUnit: {
+      type: Number,
+      required: true
+    },
     standardWorkingTime: {
       type: String,
       required: true,
@@ -82,6 +96,15 @@ export default {
       },
       set (breakTime) {
         this.$emit('update:break-time', breakTime)
+      }
+    },
+    _workingTimeUnit: {
+      get () {
+        return this.workingTimeUnit
+      },
+      set (workingTimeUnit) {
+        const num = isNumber(workingTimeUnit) ? workingTimeUnit : 0
+        this.$emit('update:working-time-unit', num)
       }
     },
     _standardWorkingTime: {
@@ -114,12 +137,9 @@ export default {
         holiday: this.isHoliday
       }
     },
-    workingTimeUnit () {
-      return this.config.workingTimeUnit
-    },
     workingTimeUnits () {
       return {
-        minutes: this.workingTimeUnit
+        minutes: this._workingTimeUnit
       }
     },
     time () {
@@ -167,4 +187,7 @@ export default {
   color: #f44336;
 }
 
+.working-time-unit {
+  width: 30px;
+}
 </style>
