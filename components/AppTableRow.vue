@@ -129,22 +129,22 @@ export default {
     actualWorkingTimeDuration () {
       return this.stayingTimeDuration.minus(this.breakTimeDuration)
     },
+    actualWorkingTime () {
+      return toHTMLTime(this.actualWorkingTimeDuration)
+    },
     workingTimeDuration () {
       return floorDuration(this.actualWorkingTimeDuration, {
         minutes: this._workingTimeUnit
       })
+    },
+    workingTime () {
+      return toHTMLTime(this.workingTimeDuration)
     },
     standardWorkingTimeDuration () {
       return parseDuration(this._standardWorkingTime)
     },
     overtimeDuration () {
       return this.workingTimeDuration.minus(this.standardWorkingTimeDuration)
-    },
-    actualWorkingTime () {
-      return toHTMLTime(this.actualWorkingTimeDuration)
-    },
-    workingTime () {
-      return toHTMLTime(this.workingTimeDuration)
     },
     overtime () {
       return toHTMLTime(this.overtimeDuration)
