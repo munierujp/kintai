@@ -1,6 +1,7 @@
 <template>
   <v-btn
     :disabled="disabled"
+    :to="to"
     @click="click"
     icon
   >
@@ -18,6 +19,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    to: {
+      type: String,
+      default: ''
     }
   },
   methods: {
