@@ -1,5 +1,6 @@
 <template>
   <v-btn
+    :disabled="disabled"
     :color="color"
     @click="click"
     text
@@ -13,6 +14,10 @@
 <script>
 export default {
   props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     color: {
       type: String,
       default: ''
