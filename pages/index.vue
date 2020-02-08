@@ -15,7 +15,6 @@
 <script>
 import {
   eachDayOfInterval,
-  startOfMonth,
   endOfMonth
 } from 'date-fns'
 import clearArray from '~/modules/clearArray'
@@ -23,6 +22,7 @@ import createDateFromYearMonthString from '~/modules/createDateFromYearMonthStri
 import formatDate from '~/modules/formatDate'
 import icons from '~/modules/icons'
 import isSameDay from '~/modules/isSameDay'
+import startOfMonth from '~/modules/startOfMonth'
 import AppTable from '~/components/AppTable'
 
 export default {
