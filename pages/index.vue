@@ -13,13 +13,11 @@
 </template>
 
 <script>
-import {
-  eachDayOfInterval
-} from 'date-fns'
 import clearArray from '~/modules/clearArray'
 import createDateFromYearMonthString from '~/modules/createDateFromYearMonthString'
 import endOfMonth from '~/modules/endOfMonth'
 import formatDate from '~/modules/formatDate'
+import getDatesOfRange from '~/modules/getDatesOfRange'
 import icons from '~/modules/icons'
 import isSameDay from '~/modules/isSameDay'
 import startOfMonth from '~/modules/startOfMonth'
@@ -89,10 +87,7 @@ export default {
       return records
     },
     createRecords () {
-      const dates = eachDayOfInterval({
-        start: this.startDate,
-        end: this.endDate
-      })
+      const dates = getDatesOfRange(this.startDate, this.endDate)
       return dates
         .map(date => ({
           date,
