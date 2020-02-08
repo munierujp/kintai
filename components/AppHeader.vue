@@ -26,9 +26,9 @@
 
 <script>
 import {
-  addMonths,
   subMonths
 } from 'date-fns'
+import addMonth from '~/modules/addMonth'
 import createDateFromYearMonthString from '~/modules/createDateFromYearMonthString'
 import formatDate from '~/modules/formatDate'
 import icons from '~/modules/icons'
@@ -67,7 +67,7 @@ export default {
       this.$router.push({ query: { month: this.month } })
     },
     toNextMonthPage () {
-      this.date = addMonths(this.date, 1)
+      this.date = addMonth(this.date, 1)
       this.$router.push({ query: { month: this.month } })
     }
   }
