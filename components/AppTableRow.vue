@@ -43,10 +43,10 @@
 </template>
 
 <script>
-import { isHoliday } from '@holiday-jp/holiday_jp'
 import floorDuration from '~/modules/floorDuration'
 import formatDate from '~/modules/formatDate'
 import formatDuration from '~/modules/formatDuration'
+import isHoliday from '~/modules/isHoliday'
 import isHTMLTime from '~/modules/isHTMLTime'
 import isNumber from '~/modules/isNumber'
 import isSaturday from '~/modules/isSaturday'
