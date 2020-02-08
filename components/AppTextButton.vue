@@ -3,6 +3,7 @@
     :color="color"
     @click="click"
     text
+    outlined
     class="app-text-button"
   >
     {{ label }}
