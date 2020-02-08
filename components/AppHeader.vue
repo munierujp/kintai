@@ -8,21 +8,18 @@
       {{ $t('APP_NAME') }}
     </v-toolbar-title>
     <v-spacer />
-    <app-icon-button
-      :icon="icons.left"
-      @click="toPrevMonthPage"
-    />
+    <app-icon-button @click="toPrevMonthPage">
+      {{ icons.left }}
+    </app-icon-button>
     <app-text-button @click="toCurrentMonthPage">
       {{ $t('CURRENT_MONTH') }}
     </app-text-button>
-    <app-icon-button
-      :icon="icons.right"
-      @click="toNextMonthPage"
-    />
-    <app-icon-button
-      :icon="icons.settings"
-      @click="openSettingDialog"
-    />
+    <app-icon-button @click="toNextMonthPage">
+      {{ icons.right }}
+    </app-icon-button>
+    <app-icon-button @click="openSettingDialog">
+      {{ icons.settings }}
+    </app-icon-button>
     <app-setting-dialog :show.sync="showSettingDialog" />
   </v-app-bar>
 </template>
