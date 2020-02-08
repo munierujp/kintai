@@ -12,10 +12,9 @@
       :icon="icons.left"
       @click="toPrevMonthPage"
     />
-    <app-text-button
-      :label="$t('CURRENT_MONTH')"
-      @click="toCurrentMonthPage"
-    />
+    <app-text-button @click="toCurrentMonthPage">
+      {{ $t('CURRENT_MONTH') }}
+    </app-text-button>
     <app-icon-button
       :icon="icons.right"
       @click="toNextMonthPage"

@@ -6,17 +6,13 @@
     outlined
     class="app-text-button"
   >
-    {{ label }}
+    <slot />
   </v-btn>
 </template>
 
 <script>
 export default {
   props: {
-    label: {
-      type: String,
-      required: true
-    },
     color: {
       type: String,
       default: ''
