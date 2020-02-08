@@ -25,13 +25,11 @@
 </template>
 
 <script>
-import {
-  subMonths
-} from 'date-fns'
 import addMonth from '~/modules/addMonth'
 import createDateFromYearMonthString from '~/modules/createDateFromYearMonthString'
 import formatDate from '~/modules/formatDate'
 import icons from '~/modules/icons'
+import subMonth from '~/modules/subMonth'
 import AppIconButton from '~/components/AppIconButton'
 import AppTextButton from '~/components/AppTextButton'
 import AppSettingDialog from '~/components/AppSettingDialog'
@@ -59,7 +57,7 @@ export default {
       this.showSettingDialog = true
     },
     toPrevMonthPage () {
-      this.date = subMonths(this.date, 1)
+      this.date = subMonth(this.date, 1)
       this.$router.push({ query: { month: this.month } })
     },
     toCurrentMonthPage () {
