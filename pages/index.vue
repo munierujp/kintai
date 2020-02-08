@@ -14,11 +14,11 @@
 
 <script>
 import {
-  eachDayOfInterval,
-  endOfMonth
+  eachDayOfInterval
 } from 'date-fns'
 import clearArray from '~/modules/clearArray'
 import createDateFromYearMonthString from '~/modules/createDateFromYearMonthString'
+import endOfMonth from '~/modules/endOfMonth'
 import formatDate from '~/modules/formatDate'
 import icons from '~/modules/icons'
 import isSameDay from '~/modules/isSameDay'
