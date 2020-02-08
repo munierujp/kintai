@@ -16,13 +16,13 @@
 import {
   eachDayOfInterval,
   startOfMonth,
-  endOfMonth,
-  isSameDay
+  endOfMonth
 } from 'date-fns'
 import clearArray from '~/modules/clearArray'
 import createDateFromYearMonthString from '~/modules/createDateFromYearMonthString'
 import formatDate from '~/modules/formatDate'
 import icons from '~/modules/icons'
+import isSameDay from '~/modules/isSameDay'
 import AppTable from '~/components/AppTable'
 
 export default {
