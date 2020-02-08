@@ -4,15 +4,7 @@
     align-center
   >
     <v-flex>
-      <app-icon-link
-        :to="prevPagePath"
-        :icon="icons.left"
-      />
       <span>{{ date | formatDate }}</span>
-      <app-icon-link
-        :to="nextPagePath"
-        :icon="icons.right"
-      />
     </v-flex>
     <v-flex>
       <app-table :records="records" />
@@ -25,15 +17,12 @@ import {
   eachDayOfInterval,
   startOfMonth,
   endOfMonth,
-  addMonths,
-  subMonths,
   isSameDay
 } from 'date-fns'
 import clearArray from '~/modules/clearArray'
 import createDateFromYearMonthString from '~/modules/createDateFromYearMonthString'
 import formatDate from '~/modules/formatDate'
 import icons from '~/modules/icons'
-import AppIconLink from '~/components/AppIconLink'
 import AppTable from '~/components/AppTable'
 
 export default {
@@ -43,7 +32,6 @@ export default {
     }
   },
   components: {
-    AppIconLink,
     AppTable
   },
   data () {
@@ -65,16 +53,6 @@ export default {
     },
     endDate () {
       return endOfMonth(this.date)
-    },
-    prevPagePath () {
-      const date = subMonths(this.date, 1)
-      const month = formatDate(date, 'yyyyMM')
-      return `/?month=${month}`
-    },
-    nextPagePath () {
-      const date = addMonths(this.date, 1)
-      const month = formatDate(date, 'yyyyMM')
-      return `/?month=${month}`
     }
   },
   watch: {
