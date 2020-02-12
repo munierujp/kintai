@@ -4,10 +4,10 @@
       {{ date | formatDate }}
     </td>
     <td>
-      <app-table-input-time v-model="_stayingTime" />
+      <app-table-row-input-time v-model="_stayingTime" />
     </td>
     <td>
-      <app-table-input-time v-model="_breakTime" />
+      <app-table-row-input-time v-model="_breakTime" />
     </td>
     <td>
       {{ actualWorkingTime }}
@@ -25,7 +25,7 @@
       {{ workingTime }}
     </td>
     <td>
-      <app-table-input-time v-model="_standardWorkingTime" />
+      <app-table-row-input-time v-model="_standardWorkingTime" />
     </td>
     <td>
       {{ overtime }}
@@ -43,11 +43,11 @@ import isNumber from '~/modules/isNumber'
 import isSaturday from '~/modules/isSaturday'
 import isSunday from '~/modules/isSunday'
 import parseDuration from '~/modules/parseDuration'
-import AppTableInputTime from '~/components/AppTableInputTime'
+import AppTableRowInputTime from '~/components/AppTableRowInputTime'
 
 export default {
   components: {
-    AppTableInputTime
+    AppTableRowInputTime
   },
   filters: {
     formatDate (date) {
