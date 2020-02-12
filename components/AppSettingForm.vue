@@ -3,7 +3,7 @@
     <v-container class="app-setting-form">
       <v-row>
         <v-col>
-          <app-input-time
+          <app-setting-form-input-time
             v-model="_breakTime"
             :label="$t('DEFAULT_BREAK_TIME')"
           />
@@ -11,7 +11,7 @@
       </v-row>
       <v-row>
         <v-col>
-          <app-input-time
+          <app-setting-form-input-time
             v-model="_standardWorkingTime"
             :label="$t('DEFAULT_STANDARD_WORKING_TIME')"
           />
@@ -32,12 +32,12 @@
 
 <script>
 import AppInputNumber from '~/components/AppInputNumber'
-import AppInputTime from '~/components/AppInputTime'
+import AppSettingFormInputTime from '~/components/AppSettingFormInputTime'
 
 export default {
   components: {
     AppInputNumber,
-    AppInputTime
+    AppSettingFormInputTime
   },
   props: {
     valid: {
