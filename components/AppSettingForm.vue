@@ -19,7 +19,7 @@
       </v-row>
       <v-row>
         <v-col>
-          <app-input-number
+          <app-setting-form-input-number
             v-model="_workingTimeUnit"
             :label="$t('DEFAULT_WORKING_TIME_UNIT')"
             :suffix="$t('MINUTES')"
@@ -31,12 +31,12 @@
 </template>
 
 <script>
-import AppInputNumber from '~/components/AppInputNumber'
+import AppSettingFormInputNumber from '~/components/AppSettingFormInputNumber'
 import AppSettingFormInputTime from '~/components/AppSettingFormInputTime'
 
 export default {
   components: {
-    AppInputNumber,
+    AppSettingFormInputNumber,
     AppSettingFormInputTime
   },
   props: {
